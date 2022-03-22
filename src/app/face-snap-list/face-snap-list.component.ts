@@ -9,27 +9,15 @@ import {filter, map, takeUntil, tap} from "rxjs/operators";
     templateUrl: './face-snap-list.component.html',
     styleUrls: ['./face-snap-list.component.scss']
 })
-export class FaceSnapListComponent implements OnInit, OnDestroy {
+export class FaceSnapListComponent implements OnInit {
 
     faceSnaps!: FaceSnap[];
-    private destroy$!: Subject<boolean>
 
     constructor(private faceSnapsService: FaceSnapsService) {
     }
 
     ngOnInit(): void {
-        this.destroy$ = new Subject<boolean>();
         this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
-
-        interval(500).pipe(
-            takeUntil(this.destroy$),
-            filter(value => value >= 8)
-        ).subscribe(console.log);
-
-    }
-
-    ngOnDestroy() {
-        this.destroy$.next(true);
     }
 
 }
