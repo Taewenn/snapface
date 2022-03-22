@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     }
 
     onAddNewFaceSnap() {
-        this.router.navigateByUrl('/create')
+        this.router.navigateByUrl('facesnaps/create')
     }
 
 }
