@@ -9,14 +9,14 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService,
+  constructor(private auth: AuthService,
               private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(): void {
-      this.authService.login();
+  onLogin(){
+      this.auth.login();
       this.router.navigateByUrl('/facesnaps');
   }
 

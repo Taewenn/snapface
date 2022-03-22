@@ -23,9 +23,6 @@ export class FaceSnapsService {
     }
 
     snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): Observable<FaceSnap> {
-        // const faceSnap = this.getFaceSnapById(faceSnapId);
-        // snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
-
         return this.getFaceSnapById(faceSnapId).pipe(
             map(faceSnap => ({
                 ...faceSnap,
